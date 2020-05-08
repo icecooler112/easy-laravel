@@ -8,7 +8,7 @@
                 <div class="card-header">{{ !empty($data->id) ? "แก้ไข" : "เพิ่ม" }}ตำแหน่งงาน</div>
 
                 <div class="card-body">
-                    <form method="POST" action="" enctype="multipart/form-data">
+                    <form method="POST" action="{{ url('position') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">

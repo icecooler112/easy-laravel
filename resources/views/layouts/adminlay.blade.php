@@ -87,6 +87,20 @@
         <main class="py-4">
             @yield('content')
         </main>
+        <!-- Alert -->
+@if(session()->has('jsAlert'))
+<script>
+alert("{{ session()->get('jsAlert') }}");
+</script>
+@endif
+<!-- End Alertt -->
+
+<script>
+$(".form-group").change(function(){
+$(this).find('.is-invalid').removeClass('is-invalid');
+$(this).find('message').remove();
+});
+</script>
     </div>
 </body>
 </html>

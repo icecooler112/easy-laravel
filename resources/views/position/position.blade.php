@@ -29,16 +29,18 @@
     </tr>
     </thead>
     <tbody class="text-center">
+
+      @foreach( $data as $key => $value )
     <tr>
-      <td >1</td>
-      <td >IT</td>
-      <td ></td>
+      <td >{{$loop->iteration }}</td>
+      <td >{{ $value->name_position }}</td>
+      <td >{{ date('d-M-Y H:i:s', strtotime($value->updated_at)) }}</td>
       <td>
       <a href="#" class="btn btn-warning">แก้ไข</a>
-      <a href="#" class="btn btn-danger">ลบข้อมูล</a>
+      <a href="{{ action('positionController@delete', $value->id) }}" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่ ?')" class="btn btn-danger">ลบข้อมูล</a>
     </td>
     </tr>
-
+  @endforeach
     </tbody>
     </table>
 </div>
