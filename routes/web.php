@@ -30,3 +30,9 @@ Route::group(['prefix' => 'admin'], function(){
 
 Route::resource('/position', 'positionController');
 Route::get('/position/{id}/delete','positionController@delete');
+
+Route::resource('/department', 'departmentController');
+Route::get('/department/{id}/delete','departmentController@delete');
+
+Route::resource('/staff', 'staffController');
+Route::get('/staff/{id}/delete','staffController@delete');

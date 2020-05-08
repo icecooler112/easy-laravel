@@ -44,7 +44,7 @@
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="{{ url('/admin/staff') }}">{{ __('ข้อมูลพนักงาน') }}</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="{{ url('/admin/department') }}">{{ __('ข้อมูลแผนกงาน') }}</a>
+                          <a class="dropdown-item" href="{{ url('/department') }}">{{ __('ข้อมูลแผนกงาน') }}</a>
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="{{ url('/position') }}">{{ __('ข้อมูลตำแหน่งงาน') }}</a>
                         </li>
