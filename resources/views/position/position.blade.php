@@ -36,7 +36,7 @@
       <td >{{ $value->name_position }}</td>
       <td >{{ date('d-M-Y H:i:s', strtotime($value->updated_at)) }}</td>
       <td>
-      <a href="#" class="btn btn-warning">แก้ไข</a>
+      <a href="{{ action('positionController@edit', $value->id) }}" class="btn btn-warning">แก้ไข</a>
       <a href="{{ action('positionController@delete', $value->id) }}" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่ ?')" class="btn btn-danger">ลบข้อมูล</a>
     </td>
     </tr>

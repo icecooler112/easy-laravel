@@ -96,7 +96,7 @@ alert("{{ session()->get('jsAlert') }}");
 <!-- End Alertt -->
 
 <script>
-$(".form-group").change(function(){
+$(".form-group row").change(function(){
 $(this).find('.is-invalid').removeClass('is-invalid');
 $(this).find('message').remove();
 });

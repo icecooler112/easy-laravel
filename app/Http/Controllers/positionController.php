@@ -15,7 +15,7 @@ class positionController extends Controller
   ];
 
   protected $cValidatorMsg = [
-    'name_position.required' => 'กรุณากรอกชื่ชื่อตำแหน่งงาน',
+    'name_position.required' => 'กรุณากรอกชื่อตำแหน่งงาน',
     'name_position.min' => 'ชื่อตำแหน่งงานต้องมีอย่างน้อย 2 ตัวอักษร',
     'name_position.max' => 'ชื่อตำแหน่งงานต้องมีไม่เกิน 255 ตัวอักษร'
     ];
@@ -100,7 +100,19 @@ class positionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $validator = Validator::make( $request->all(), $this->cValidator, $this->cValidatorMsg);
+    if( $validator->fails() ){
+          return back()->withInput()->withErrors( $validator->errors() );
+      }
+      else{
+    $data = PM::findOrFail( $id );
+ if( is_null($data) ){
+   return back()->with('jsAlert', "ไม่พบข้อมูลที่ต้องการแก้ไข");
+ }
+}
+ $data->name_position = $request->name_position;
+ $data->update();
+ return redirect()->route('position.index')->with('jsAlert', 'แก้ไขข้อมูลสำเร็จ');
     }
 
     /**
