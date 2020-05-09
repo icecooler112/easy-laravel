@@ -42,7 +42,7 @@
                   {{ __('การจัดการข้อมูล') }} <span class="caret"></span>
                           </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="{{ url('/admin/staff') }}">{{ __('ข้อมูลพนักงาน') }}</a>
+                          <a class="dropdown-item" href="{{ url('/staff') }}">{{ __('ข้อมูลสมาชิก') }}</a>
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="{{ url('/department') }}">{{ __('ข้อมูลแผนกงาน') }}</a>
                           <div class="dropdown-divider"></div>
@@ -67,6 +67,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

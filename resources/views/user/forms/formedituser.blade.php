@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                   @if( !empty($data->id) )
-                  <form method="POST" action="{{ action('staffController@update', $data->id) }}" enctype="multipart/form-data">
+                  <form method="POST" action="{{ action('userController@update', $data->id) }}" enctype="multipart/form-data">
                     <input type="hidden" name="_method" value="PUT">
                     @else
                     <form method="POST" action="{{ url('staff') }}" enctype="multipart/form-data">
@@ -68,7 +68,7 @@
                            <label for="position" class="col-md-4 col-form-label text-md-right">ตำแหน่งงาน</label>
 
                            <div class="col-md-6">
-                               <select class="form-control {{ !empty( $errors->first('position')) }}" name="position" id="position" value="{{ !empty($data->position) ? $data->position: old('position') }}" required>
+                               <select class="form-control {{ !empty( $errors->first('position')) }}" name="position" id="position" value="{{ !empty($data->position) ? $data->position: old('position') }}" required disabled>
                                <option value="" class="form-control">-เลือกตำแหน่งงาน-</option>
                                @foreach( $position AS $key => $value )
                                @php
@@ -97,7 +97,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">แผนกงาน</label>
 
                             <div class="col-md-6">
-                            <select class="form-control {{ !empty( $errors->first('department')) ? 'is-invalid' : '' }}" name="department" id="department" value="{{ !empty($data->department) ? $data->department: old('department') }}" required>
+                            <select class="form-control {{ !empty( $errors->first('department')) ? 'is-invalid' : '' }}" name="department" id="department" value="{{ !empty($data->department) ? $data->department: old('department') }}" required disabled>
                             <option value="" class="form-control">-เลือกแผนกงาน-</option>
                             @foreach( $department AS $key => $value )
                             @php
@@ -134,7 +134,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                  <button type="submit" class="btn btn-success "> บันทึก</button>
-                                 <a href="{{ url('/staff') }}" class="btn btn-danger "> ยกเลิก</a>
+                                 <a href="{{ url('/user') }}" class="btn btn-danger "> ยกเลิก</a>
                             </div>
                         </div>
                     </form>

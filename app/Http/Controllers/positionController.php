@@ -11,13 +11,11 @@ use App\Http\Controllers\Controller;
 class positionController extends Controller
 {
   protected $cValidator = [
-    'name_position' => 'required|min:2|max:255'
+
   ];
 
   protected $cValidatorMsg = [
-    'name_position.required' => 'กรุณากรอกชื่อตำแหน่งงาน',
-    'name_position.min' => 'ชื่อตำแหน่งงานต้องมีอย่างน้อย 2 ตัวอักษร',
-    'name_position.max' => 'ชื่อตำแหน่งงานต้องมีไม่เกิน 255 ตัวอักษร'
+    
     ];
 
     private $limit = 5;

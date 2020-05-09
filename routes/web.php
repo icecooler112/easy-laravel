@@ -36,3 +36,6 @@ Route::get('/department/{id}/delete','departmentController@delete');
 
 Route::resource('/staff', 'staffController');
 Route::get('/staff/{id}/delete','staffController@delete');
+
+Route::resource('/user', 'userController');
+Route::get('/user/{id}/delete','userController@delete');
