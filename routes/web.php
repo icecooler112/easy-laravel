@@ -20,6 +20,8 @@ Auth::routes();
 //Route for normal user
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index');
+    Route::get('/profile', 'userController@profile');
+    Route::put('/editProfile', 'userController@editProfile');
 });
 //Route for admin
 Route::group(['prefix' => 'admin'], function(){

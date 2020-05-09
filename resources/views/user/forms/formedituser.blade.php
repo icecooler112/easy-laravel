@@ -1,18 +1,18 @@
-@extends('layouts.adminlay')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ !empty($data->id) ? "แก้ไข" : "เพิ่ม" }}สมาชิก</div>
+                <div class="card-header">แก้ไขข้อมูลสมาชิก</div>
 
                 <div class="card-body">
                   @if( !empty($data->id) )
-                  <form method="POST" action="{{ action('userController@update', $data->id) }}" enctype="multipart/form-data">
+                  <form method="POST" action="{{ action('userController@editProfile', $data->id) }}" enctype="multipart/form-data">
                     <input type="hidden" name="_method" value="PUT">
                     @else
-                    <form method="POST" action="{{ url('staff') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ url('user') }}" enctype="multipart/form-data">
                       @endif
 
                         @csrf
@@ -56,71 +56,7 @@
                                   </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('รหัสผ่าน') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control {{ $errors->first('password') }}" name="password" >
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                           <label for="position" class="col-md-4 col-form-label text-md-right">ตำแหน่งงาน</label>
-
-                           <div class="col-md-6">
-                               <select class="form-control {{ !empty( $errors->first('position')) }}" name="position" id="position" value="{{ !empty($data->position) ? $data->position: old('position') }}" required disabled>
-                               <option value="" class="form-control">-เลือกตำแหน่งงาน-</option>
-                               @foreach( $position AS $key => $value )
-                               @php
-                                   $sel = '';
-                               @endphp
-
-                               @if( !empty($data->position) )
-                                   @if($value->id == $data->position )
-                                       @php
-                                           $sel='selected="1"';
-                                       @endphp
-                                   @endif
-                               @endif
-                                   @if($value->id == old('name_position'))
-                                   @php
-                                       $sel = 'selected="1"';
-                                   @endphp
-                               @endif
-                               <option class="form-control" {{ $sel }} value="{{ $value->id }}"> {{ $value->name_position }} </option>
-                               @endforeach
-                               </select>
-                           </div>
-                       </div>
-
-                       <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">แผนกงาน</label>
-
-                            <div class="col-md-6">
-                            <select class="form-control {{ !empty( $errors->first('department')) ? 'is-invalid' : '' }}" name="department" id="department" value="{{ !empty($data->department) ? $data->department: old('department') }}" required disabled>
-                            <option value="" class="form-control">-เลือกแผนกงาน-</option>
-                            @foreach( $department AS $key => $value )
-                            @php
-                                $sel = '';
-                            @endphp
-
-                            @if( !empty($data->department) )
-                                @if($value->id == $data->department )
-                                    @php
-                                        $sel='selected="1"';
-                                    @endphp
-                                @endif
-                            @endif
-                                @if($value->id == old('department'))
-                                @php
-                                    $sel = 'selected="1"';
-                                @endphp
-                            @endif
-                            <option class="form-control" {{ $sel }} value="{{ $value->id }}"> {{ $value->name_department }} </option>
-                            @endforeach
-                            </select>
-                            </div>
-                        </div>
 
                         <div class="form-group row">
                             <label for="img" class="col-md-4 col-form-label text-md-right">{{ __('รูปภาพ') }}</label>
