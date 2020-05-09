@@ -78,6 +78,11 @@
         <main class="py-4">
             @yield('content')
         </main>
+        @if(session()->has('jsAlert'))
+        <script>
+        alert("{{ session()->get('jsAlert') }}");
+        </script>
+        @endif
     </div>
 </body>
 </html>

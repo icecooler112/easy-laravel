@@ -115,12 +115,18 @@ class userController extends Controller
        }
        return view('user.forms.formedituser')->with(['data'=>$data]);
      }
-     public function editProfile(){
+     public function editProfile(Request $request){
        $data = SM::findOrFail( Auth::user()->id );
        if( is_null($data) ){
-         return 'error';
+         return back()->with('jsAlert', "ไม่พบข้อมูล");
        }
-       $data->fill( Input::all() );
+       $data->fill([
+         "name_title" =>$request->name_title,
+         "name" =>$request->name,
+         "lastname" =>$request->lastname,
+         "email" =>$request->email,
+         "type"=>0,
+       ]);
 
       if( $data->update()) {
        if( $request->has('img') ){
@@ -132,6 +138,6 @@ class userController extends Controller
          $data->update();
        }
      }
-       return back();
+       return redirect()->route('user.index')->with('jsAlert', 'แก้ไขข้อมูลสำเร็จ');
      }
  }
