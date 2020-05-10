@@ -41,7 +41,7 @@ class staffController extends Controller
      */
     public function create()
     {
-        return view('staff.forms.formstaff')->with(['department'=>DM::get() ,'position'=>PM::get() ]);;
+        return view('staff.forms.formstaff')->with(['department'=>DM::get() ,'position'=>PM::get() ]);
     }
 
     /**

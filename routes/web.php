@@ -22,6 +22,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index');
     Route::get('/profile', 'userController@profile');
     Route::put('/editProfile', 'userController@editProfile');
+    Route::put('/editletter', 'letterController@editletter');
 });
 //Route for admin
 Route::group(['prefix' => 'admin'], function(){
@@ -41,3 +42,6 @@ Route::get('/staff/{id}/delete','staffController@delete');
 
 Route::resource('/user', 'userController');
 Route::get('/user/{id}/delete','userController@delete');
+
+Route::resource('/letter', 'letterController');
+Route::get('/letter/{id}/delete','letterController@delete');

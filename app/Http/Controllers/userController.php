@@ -8,7 +8,7 @@ use Auth;
 use App\Models\positionmodel AS PM; //เรียก positionmodel มาใช้ใน Controller นี้
 use App\Models\departmentmodel AS DM; //เรียก department มาใช้ใน Controller นี้
 use App\Models\staffmodel AS SM; //เรียก staffmodel มาใช้ใน Controller นี้
-
+use App\Models\lettermodel AS LM; //เรียก positionmodel มาใช้ใน Controller นี้
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
@@ -34,7 +34,7 @@ class userController extends Controller
        $request->type = 0;
        $data = $pm->lists( $request );
 
-         return view('user.dashboarduser')->with( ["data"=>$data, "limit"=>$request->limit, 'department'=>DM::get(), 'position'=>PM::get() ] );
+         return view('user.dashboarduser')->with( ["data"=>$data, "limit"=>$request->limit, 'department'=>DM::get(), 'position'=>PM::get(), 'letter'=>LM::get() ] );
      }
 
      /**
