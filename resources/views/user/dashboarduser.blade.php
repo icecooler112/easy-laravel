@@ -12,7 +12,7 @@
                      <input type="text" class="form-control" id="search" name="search" placeholder="" value="{{ !empty($_GET['search']) ? $_GET['search'] : '' }}">
     </div>
                 <button type="submit" class="btn btn-primary "><i class="fa fa-search"></i> ค้นหา</button>
-                <a href="{{ url('/create') }}" class="btn btn-success float-right ml-2"> ยื่นเรื่องลา</a>
+                <a href="{{ url('letter/create') }}" class="btn btn-success float-right ml-2"> ยื่นเรื่องลา</a>
               </form>
           </div>
 
@@ -28,13 +28,15 @@
       <th scope="col">หมายเหตุ</th>
       <th scope="col">วันที่ลา</th>
       <th scope="col">ถึงวันที่</th>
-      <th scope="col">ไฟล์แนบ</th>
+      <th scope="col">เป็นจำนวนวัน</th>
+      <th scope="col">สถานะ</th>
       <th scope="col">จัดการ</th>
     </tr>
     </thead>
     <tbody class="text-center">
 
     <tr>
+      <td ></td>
       <td ></td>
       <td ></td>
       <td ></td>
