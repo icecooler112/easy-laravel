@@ -40,8 +40,8 @@
         @endif
       </td>
       <td >{{ $value->name }} {{ $value->lastname }}</td>
-      <td >{{ $value->position_name }}</td>
-      <td >{{ $value->department_name }}</td>
+      <td >{{ $value->position }}</td>
+      <td >{{ $value->department }}</td>
       <td>
       <a href="{{ action('staffController@edit', $value->id) }}" class="btn btn-warning">แก้ไข</a>
       <a href="{{ action('staffController@delete', $value->id) }}" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่ ?')" class="btn btn-danger">ลบข้อมูล</a>

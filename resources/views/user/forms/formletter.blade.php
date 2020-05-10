@@ -10,32 +10,42 @@
                 @csrf
 
                 <div class="card-body">
-                <form action="" method="post"
-                        enctype="multipart/form-data">
-                        <input type="hidden" name="_method" value="PUT">
-
-
-                            <input type="hidden" name="id" value="">
-
+                <form method="POST" action="{{ url('letter') }}" enctype="multipart/form-data">
+                  
                             <div class="row" style="margin-top:7px;">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="address">ข้าพเจ้า : </label>
-                                        <h5><p></p></h5>
+                                        <label for="name_title" >คำนำหน้า </label>
+                                        <input id="name_title" type="text" class="form-control {{ !empty($errors->first('name_title'))}}" name="name_title" value="{{ !empty($data->name_title) ? $data->name_title: old('name_title') }}" disabled>
+
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="date">พนักงานประจำตำแหน่ง : </label>
-                                        <h5><p for="date"> </p></h5>
+                                        <label for="name" >ชื่อ </label>
+                                        <input id="name" type="text" class="form-control {{ !empty($errors->first('name'))}}" name="name" value="{{ !empty($data->name) ? $data->name: old('name') }}" disabled>
+                                        <input id="name" name="name" value="{{ !empty($data->name) ? $data->name: old('name') }}" hidden>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="name">สกุล </label>
+                                        <input id="lastname" type="text" class="form-control {{ !empty($errors->first('lastname'))}}" name="lastname" value="{{ !empty($data->lastname) ? $data->lastname: old('lastname') }}" disabled>
+                                        <input id="lastname" name="lastname" value="{{ !empty($data->lastname) ? $data->lastname: old('lastname') }}" hidden>
                                     </div>
                                 </div>
                             </div>
                             <div class="row" style="margin-top:7px;">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="address">ฝ่าย/แผนก : </label>
-                                        <h5><p for="date"> </p></h5>
+                                        <label for="position">ตำแหน่งงาน : </label>
+                                        <input id="position" type="text" class="form-control {{ !empty($errors->first('position'))}}" name="position" value="{{ !empty($data->position) ? $data->position: old('position') }}" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="department">แผนกงาน : </label>
+                                        <input id="department" type="text" class="form-control {{ !empty($errors->first('department'))}}" name="department" value="{{ !empty($data->department) ? $data->department: old('department') }}" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -49,8 +59,8 @@
                             <div class="row" style="margin-top:7px;">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="date">การลา*</label>
-                                        <select name="title_name" class="form-control {{ !empty( $errors->first('title_name')) ? 'is-invalid' : '' }}">
+                                        <label for="title_name">การลา*</label>
+                                        <select name="title_name" class="form-control {{ !empty( $errors->first('title_name'))}}" required>
                                             <option value="">-เลือกหมายเหตุการลา-</option>
                                             <option value="ลาป่วย">ลาป่วย</option>
                                             <option value="ลากิจ">ลากิจ</option>
@@ -61,7 +71,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="address">อื่นๆ โปรดระบุ *</label>
+                                        <label for="etc">อื่นๆ โปรดระบุ </label>
                                         <input  type="text" class="form-control" name="etc" value="{{ !empty($data->etc) ? $data->etc: old('etc') }}">
                                     </div>
                                 </div>
@@ -69,12 +79,8 @@
                             <div class="row" style="margin-top:7px;">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="form_message">เนื่องจาก *</label>
-                                        <textarea  name="detail" class="form-control {{ !empty( $errors->first('detail')) ? 'is-invalid' : '' }}"
-                                            placeholder="สาเหตุการลา *" rows="4"
-                                            data-error="Please, leave us a message.">
-
-                                            </textarea>
+                                        <label for="detail">เนื่องจาก </label>
+                                        <textarea  name="detail" class="form-control {{ !empty( $errors->first('detail'))}}" rows="4" required></textarea>
 
                                     </div>
                                 </div>
@@ -82,28 +88,24 @@
                             <div class="row" style="margin-top:7px;">
                                 <div class="col-md-5">
                                     <div class="form-group">
-                                        <label for="since">ตั้งแต่วันที่ *</label>
-                                        <input id="since" type="date"
-                                            class="form-control {{ $errors->first('since') ? ' is-invalid' : '' }}"
-                                            name="since" value="{{ !empty($data->since) ? $data->since: old('since') }}">
+                                        <label for="date">ตั้งแต่วันที่ *</label>
+                                        <input id="date" type="date" class="form-control {{ $errors->first('date')  }}" name="date" value="{{ !empty($data->date) ? $data->date: old('date') }}" required>
 
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="date">ถึงวันที่</label>
-                                        <input id="todate" type="date"
-                                            class="form-control {{ $errors->first('todate') ? ' is-invalid' : '' }}"
-                                            name="todate" value="{{ !empty($data->todate) ? $data->todate: old('todate') }}">
+                                        <label for="date_to">ถึงวันที่</label>
+                                        <input id="date_to" type="date" class="form-control {{ $errors->first('date_to')  }}" name="date_to" value="{{ !empty($data->date_to) ? $data->date_to: old('date_to') }}" required>
 
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="since">เป็นเวลา</label>
-                                        <input id="since" type="text"
-                                            class="form-control {{ $errors->first('alltime') ? ' is-invalid' : '' }}"
-                                            name="alltime" value="{{ !empty($data->alltime) ? $data->alltime: old('alltime') }}">
+                                        <label for="all_time">เป็นเวลา</label>
+                                        <input id="all_time" type="text"
+                                            class="form-control {{ $errors->first('all_time')  }}"
+                                            name="all_time" value="{{ !empty($data->all_time) ? $data->all_time: old('all_time') }}">
 
                                     </div>
                                 </div>
@@ -112,22 +114,21 @@
                             <div class="row" style="margin-top:7px;">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="contacted">เบอร์โทรศัพท์ติดต่อ หากมีธุระเร่งด่วน</label>
-                                        <input id="contacted" type="text"
-                                            class="form-control {{ $errors->first('contacted') ? ' is-invalid' : '' }}"
-                                            name="contacted" value="{{ !empty($data->contacted) ? $data->contacted: old('contacted') }}">
+                                        <label for="phone">เบอร์โทรศัพท์ติดต่อ หากมีธุระเร่งด่วน</label>
+                                        <input id="phone" type="text"
+                                            class="form-control {{ $errors->first('phone')  }}"
+                                            name="phone" value="{{ !empty($data->phone) ? $data->phone: old('phone') }}">
 
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="staticEmail" class="col-sm-2 col-form-label">ไฟล์แนบ</label>
+                                <label for="image" class="col-sm-2 col-form-label">ไฟล์แนบ</label>
                                 <div class="col-sm-8">
-                                    <input type="file" name="image" accept="image/*">
+                                    <input type="file" name="image" id="image" accept="image/*">
                                 </div>
 
                             </div>
-
                             <div class="col-md-12" style="margin-top:30px; text-align:center;">
                               <button type="submit" class="btn btn-success "> บันทึก</button>
                               <a href="{{ url('/user') }}" class="btn btn-danger "> ยกเลิก</a>

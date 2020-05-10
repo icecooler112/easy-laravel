@@ -22,7 +22,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index');
     Route::get('/profile', 'userController@profile');
     Route::put('/editProfile', 'userController@editProfile');
-    Route::put('/editletter', 'letterController@editletter');
+
 });
 //Route for admin
 Route::group(['prefix' => 'admin'], function(){

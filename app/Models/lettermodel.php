@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class lettermodel extends Model
 {
   protected $table = "letter";
-protected $fillable = [ "title_name", "detail", "date", "date_to", "all_time", "status" ];
+protected $fillable = [ "name","lastname","title_name","etc", "detail", "date", "date_to", "all_time","phone", "status" ];
 public $primarykey = "id";
 
 public function lists($request){

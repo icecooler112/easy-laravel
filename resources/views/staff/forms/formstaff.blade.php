@@ -72,25 +72,19 @@
                                <select class="form-control {{ !empty( $errors->first('position')) }}" name="position" id="position" value="{{ !empty($data->position) ? $data->position: old('position') }}" required>
                                <option value="" class="form-control">-เลือกตำแหน่งงาน-</option>
                                @foreach( $position AS $key => $value )
-                               @php
-                                   $sel = '';
-                               @endphp
-
-                               @if( !empty($data->position) )
-                                   @if($value->id == $data->position )
-                                       @php
-                                           $sel='selected="1"';
-                                       @endphp
-                                   @endif
-                               @endif
-                                   @if($value->id == old('name_position'))
-                                   @php
-                                       $sel = 'selected="1"';
-                                   @endphp
-                               @endif
-                               <option class="form-control" {{ $sel }} value="{{ $value->id }}"> {{ $value->name_position }} </option>
-                               @endforeach
-                               </select>
+                         @php
+                          $sel = '';
+                          @endphp
+                          @if( !empty($data->position) )
+                          @if( $value->name_position == $data->position )
+                          @php
+                          $sel = 'selected="1"';
+                          @endphp
+                          @endif
+                          @endif
+     <option {{ $sel }} value="{{ $value->name_position }}">{{ $value->name_position }}</option>
+     @endforeach
+   </select>
                            </div>
                        </div>
 
@@ -101,25 +95,18 @@
                             <select class="form-control {{ !empty( $errors->first('department')) ? 'is-invalid' : '' }}" name="department" id="department" value="{{ !empty($data->department) ? $data->department: old('department') }}" required>
                             <option value="" class="form-control">-เลือกแผนกงาน-</option>
                             @foreach( $department AS $key => $value )
-                            @php
-                                $sel = '';
-                            @endphp
-
-                            @if( !empty($data->department) )
-                                @if($value->id == $data->department )
-                                    @php
-                                        $sel='selected="1"';
-                                    @endphp
-                                @endif
-                            @endif
-                                @if($value->id == old('department'))
-                                @php
-                                    $sel = 'selected="1"';
-                                @endphp
-                            @endif
-                            <option class="form-control" {{ $sel }} value="{{ $value->id }}"> {{ $value->name_department }} </option>
-                            @endforeach
-                            </select>
+                      @php
+                       $sel = '';
+                       @endphp
+                       @if( !empty($data->department) )
+                       @if( $value->name_department == $data->department )
+                       @php
+                       $sel = 'selected="1"';
+                       @endphp
+                       @endif
+                       @endif
+                       <option {{ $sel }} value="{{ $value->name_department }}">{{ $value->name_department }}</option>
+                       @endforeach
                             </div>
                         </div>
 

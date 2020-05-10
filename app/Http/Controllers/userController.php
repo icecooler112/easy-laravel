@@ -34,7 +34,7 @@ class userController extends Controller
        $request->type = 0;
        $data = $pm->lists( $request );
 
-         return view('user.dashboarduser')->with( ["data"=>$data, "limit"=>$request->limit, 'department'=>DM::get(), 'position'=>PM::get(), 'letter'=>LM::get() ] );
+         return view('user.dashboarduser')->with( ["data"=>$data, "limit"=>$request->limit, 'department'=>DM::get(), 'position'=>PM::get(), 'letters'=>LM::get() ] );
      }
 
      /**
