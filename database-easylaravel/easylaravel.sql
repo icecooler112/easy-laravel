@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2020 at 07:34 AM
+-- Generation Time: May 11, 2020 at 09:16 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.3.16
 
@@ -125,9 +125,9 @@ INSERT INTO `position` (`id`, `name_position`, `created_at`, `updated_at`) VALUE
 
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `lastname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lastname` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -144,8 +144,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name_title`, `name`, `lastname`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `img`, `position`, `department`, `type`) VALUES
-(2, 'นาย', 'admin', 'admin', 'admin@hotmail.com', '$2y$10$fA3gP4ghH5qLljaUfW2cKu7NB8YXczoJxjXDAXONHv/Wt/q3aH63a', 'eoHYeOxF5xT7p2TuudAUgufzcSPzK6XJGZxFM99oiKTvljaOdKVVVEFULPte', '2020-05-07 16:28:35', '2020-05-09 06:12:35', 'photos/JnXfaFXd9yTKdp0Un3YiTu3kVJ5QpUruLUmq2QuF.jpeg', '2', '1', 1),
-(20, 'นาย', 'user', 'test', 'user@hotmail.com', '$2y$10$ZgekHHQeJBoeHekn1YbRXOY.QFHRHIIsEUqtwHH9O8ymY4RBOsAWy', NULL, '2020-05-10 10:12:29', '2020-05-10 10:12:29', 'photos/MAqDoOMqtrwGptstxucaqV0k0eBERDuMetYn8eF3.jpeg', 'โปรแกรมเมอร์', 'IT', 0);
+(2, 'นาย', 'admin', 'admin', 'admin@hotmail.com', '$2y$10$fA3gP4ghH5qLljaUfW2cKu7NB8YXczoJxjXDAXONHv/Wt/q3aH63a', 'f18W5k6LGo8Y2bZoEV0IvllEEhzHVN2Ayz3Qz7ncw3u1kr5ta5KkvpOidt8w', '2020-05-07 16:28:35', '2020-05-09 06:12:35', 'photos/JnXfaFXd9yTKdp0Un3YiTu3kVJ5QpUruLUmq2QuF.jpeg', '2', '1', 1),
+(20, 'นาย', 'user', 'test', 'user@hotmail.com', '$2y$10$Ehp6iubRskEwC5i6DNkFSuzHdR5a6ecNIR.5ag3xBMQun5KD1Mc3.', 'B1ojmaWFiUeTz02Bzu654FwfNPjBbi8L76AlObn0BedFkDmpvwAG1tdkIqIL', '2020-05-10 10:12:29', '2020-05-11 07:14:53', 'photos/MAqDoOMqtrwGptstxucaqV0k0eBERDuMetYn8eF3.jpeg', 'โปรแกรมเมอร์', 'IT', 0);
 
 --
 -- Indexes for dumped tables
@@ -220,7 +220,7 @@ ALTER TABLE `position`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
