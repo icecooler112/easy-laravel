@@ -5,3 +5,11 @@
     - Run command `php artisan key:generate`
     - create database
     - Run command `php artisan migrate`
+
+1 แก้ไขตำแหน่งงาน
+2.เปลี่ยน nav จากข้อมูลสมาชิกเป็นข้อมูลพนักงาน
+3.เปลี่ยนข้างมน nav เอาคำว่าข้อมูลออก
+4.แก้ไขรูปภาพ
+5.เพิ่มข้อมูลการลาในส่วนที่เหลือ
+
+555
