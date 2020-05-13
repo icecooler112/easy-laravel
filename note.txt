@@ -1,0 +1,7 @@
+1. clone repo github
+2. install projact
+    - Run command `composer install`
+    - Copy .env.example -> .env and update environments value
+    - Run command `php artisan key:generate`
+    - create database
+    - Run command `php artisan migrate`
