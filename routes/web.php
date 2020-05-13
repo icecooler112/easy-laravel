@@ -28,18 +28,17 @@ Route::group(['middleware' => ['auth']], function () {
 Route::group(['prefix' => 'admin'], function(){
     Route::group(['middleware' => ['admin']], function(){
         Route::get('/dashboard', 'admin\AdminController@index');
+
     });
 });
 
+
 Route::resource('/position', 'positionController');
 Route::get('/position/{id}/delete','positionController@delete');
-
 Route::resource('/department', 'departmentController');
 Route::get('/department/{id}/delete','departmentController@delete');
-
 Route::resource('/staff', 'staffController');
 Route::get('/staff/{id}/delete','staffController@delete');
-
 Route::resource('/user', 'userController');
 Route::get('/user/{id}/delete','userController@delete');
 
