@@ -48,6 +48,9 @@
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="{{ url('/position') }}">{{ __('ตำแหน่งงาน') }}</a>
                         </li>
+                        <li class="nav-item">
+                        <a class="nav-link " href="{{ url('/report') }}">รายงาน</a>
+                      </li>
                         </ul>
 
                     <!-- Right Side Of Navbar -->

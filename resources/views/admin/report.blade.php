@@ -2,16 +2,12 @@
 
 @section('content')
 <div class="container">
-  <h3 class="text-center">รายการลา</h3>
+  <h3 class="text-center">รายงานการลาของพนักงาน</h3>
+  <br>
     <div class="clearfix mb-2">
-      <div class="float-right">
-             <form method="GET" class="form-inline">
-
-                 <div class="form-group">
-                     <label for="search" class="sr-only">Search</label>
-                     <input type="text" class="form-control" id="search" name="search" placeholder="" value="{{ !empty($_GET['search']) ? $_GET['search'] : '' }}">
-    </div>
-                <button type="submit" class="btn btn-primary "><i class="fa fa-search"></i> ค้นหา</button>
+                 <div class="form-group text-center ">
+                <a href="{{ url('letter/create') }}" class="btn btn-success text-center"> Export to Excel</a>
+                <a href="{{ url('letter/create') }}" class="btn btn-danger text-center"> Export to PDF</a>
               </form>
           </div>
 

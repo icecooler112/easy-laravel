@@ -77,7 +77,7 @@ class userController extends Controller
       */
      public function edit($id)
      {
-      
+
      }
 
      /**
@@ -136,4 +136,7 @@ class userController extends Controller
      }
        return redirect()->route('user.index')->with('jsAlert', 'แก้ไขข้อมูลสำเร็จ');
      }
- }
+
+
+ 
+}

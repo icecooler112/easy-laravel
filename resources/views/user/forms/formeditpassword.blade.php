@@ -8,34 +8,26 @@
                 <div class="card-header">แก้ไขรหัสผ่าน</div>
 
                 <div class="card-body">
-                  @if( !empty($data->id) )
-                  <form method="POST" action="{{ action('userController@editProfile', $data->id) }}" enctype="multipart/form-data">
-                    <input type="hidden" name="_method" value="PUT">
-                    @else
-                    <form method="POST" action="{{ url('user') }}" enctype="multipart/form-data">
-                      @endif
-
+                    <form method="POST" action="{{ asset('/changepassword') }}" enctype="multipart/form-data">
                         @csrf
-
-
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('รหัสผ่านเดิม') }}</label>
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control {{ !empty($errors->first('name'))}}" name="name" value="{{ !empty($data->name) ? $data->name: old('name') }}" required>
+                                <input id="old_password" type="password" class="form-control " name="old_password" value="" required>
                                   </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('รหัสผ่าน') }}</label>
                             <div class="col-md-6">
-                                <input id="lastname" type="text" class="form-control {{ !empty($errors->first('lastname'))}}" name="lastname" value="{{ !empty($data->lastname) ? $data->lastname: old('lastname') }}" required>
+                                <input id="new_password" type="password" class="form-control " name="new_password" value="" required>
                                   </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('ยืนยันรหัสผ่าน') }}</label>
                             <div class="col-md-6">
-                                <input id="email" type="text" class="form-control {{ !empty($errors->first('email'))}}" name="email" value="{{ !empty($data->email) ? $data->email: old('email') }}" required>
+                                <input id="new_password2" type="password" class="form-control " name="new_password2" value="" required>
                                   </div>
                         </div>
 

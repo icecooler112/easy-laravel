@@ -7,11 +7,11 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">ฟอร์มใบลา</div>
-                @csrf
 
                 <div class="card-body">
-                <form method="POST" action="{{ url('letter') }}" enctype="multipart/form-data">
-                  
+                <form method="POST" action="{{ asset('letter') }}" enctype="multipart/form-data">
+                  @csrf
+                  <input id="user_id" type="text" class="form-control {{ !empty($errors->first('user_id'))}}" name="user_id" value="{{ !empty($data->id) ? $data->id: old('id') }}" hidden >
                             <div class="row" style="margin-top:7px;">
                                 <div class="col-md-4">
                                     <div class="form-group">
@@ -24,14 +24,14 @@
                                     <div class="form-group">
                                         <label for="name" >ชื่อ </label>
                                         <input id="name" type="text" class="form-control {{ !empty($errors->first('name'))}}" name="name" value="{{ !empty($data->name) ? $data->name: old('name') }}" disabled>
-                                        <input id="name" name="name" value="{{ !empty($data->name) ? $data->name: old('name') }}" hidden>
+
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="name">สกุล </label>
                                         <input id="lastname" type="text" class="form-control {{ !empty($errors->first('lastname'))}}" name="lastname" value="{{ !empty($data->lastname) ? $data->lastname: old('lastname') }}" disabled>
-                                        <input id="lastname" name="lastname" value="{{ !empty($data->lastname) ? $data->lastname: old('lastname') }}" hidden>
+
                                     </div>
                                 </div>
                             </div>

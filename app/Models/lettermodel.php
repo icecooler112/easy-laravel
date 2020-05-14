@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class lettermodel extends Model
 {
   protected $table = "letter";
-protected $fillable = [ "name","lastname","title_name","etc", "detail", "date", "date_to", "all_time","phone", "status" ];
+protected $fillable = [ "user_id","title_name","etc", "detail", "date", "date_to", "all_time","phone", "status" ];
 public $primarykey = "id";
 
 public function lists($request){
@@ -17,5 +17,8 @@ public function lists($request){
         ->leftjoin('position', "{$this->table}.position", "=", "position.id")
         ->leftjoin('letter',"letter.id","=","users.id")
         ->where('users.id',auth::user()->id);
+
+
 }
+
 }
