@@ -5,6 +5,7 @@
     - Run command `php artisan key:generate`
     - create database
     - Run command `php artisan migrate`
+    - Run command `php artisan storage:link`
 
 1 แก้ไขตำแหน่งงาน
 2.เปลี่ยน nav จากข้อมูลสมาชิกเป็นข้อมูลพนักงาน

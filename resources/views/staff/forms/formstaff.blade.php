@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ !empty($data->id) ? "แก้ไข" : "เพิ่ม" }}สมาชิก</div>
+                <div class="card-header">{{ !empty($data->id) ? "แก้ไข" : "เพิ่ม" }}พนักงาน</div>
 
                 <div class="card-body">
                   @if( !empty($data->id) )

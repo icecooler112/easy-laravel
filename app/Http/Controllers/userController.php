@@ -77,11 +77,7 @@ class userController extends Controller
       */
      public function edit($id)
      {
-       $data = SM::findOrFail( $id );
-     if( is_null($data) ){
-       return back()->with('jsAlert', "ไม่พบข้อมูล");
-     }
-     return view('user.forms.formedituser')->with( ['data'=>$data, 'department'=>DM::get(), 'position'=>PM::get(), Auth::user()->id  ] );
+      
      }
 
      /**

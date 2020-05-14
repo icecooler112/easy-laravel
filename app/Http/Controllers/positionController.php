@@ -10,13 +10,7 @@ use App\Http\Controllers\Controller;
 
 class positionController extends Controller
 {
-  protected $cValidator = [
 
-  ];
-
-  protected $cValidatorMsg = [
-    
-    ];
 
     private $limit = 5;
     /**
@@ -49,17 +43,11 @@ class positionController extends Controller
      */
     public function store(Request $request)
     {
-      $validator = Validator::make( $request->all(), $this->cValidator, $this->cValidatorMsg);
-    if( $validator->fails() ){
-        return back()->withInput()->withErrors( $validator->errors() );
-      }
-      else{
     $data = new PM;
-   $data->name_position = $request->name_position;
-   $data->save();
+    $data->name_position = $request->name_position;
+    $data->save();
 
-}
-   return redirect()->route('position.index')->with('jsAlert', 'เพิ่มข้อมูลสำเร็จ');
+    return redirect()->route('position.index')->with('jsAlert', 'เพิ่มข้อมูลสำเร็จ');
 
     }
 
@@ -98,15 +86,10 @@ class positionController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $validator = Validator::make( $request->all(), $this->cValidator, $this->cValidatorMsg);
-    if( $validator->fails() ){
-          return back()->withInput()->withErrors( $validator->errors() );
-      }
-      else{
     $data = PM::findOrFail( $id );
  if( is_null($data) ){
    return back()->with('jsAlert', "ไม่พบข้อมูลที่ต้องการแก้ไข");
- }
+
 }
  $data->name_position = $request->name_position;
  $data->update();

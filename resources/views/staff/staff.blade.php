@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-  <h3 class="text-center">ข้อมูลสมาชิก</h3>
+  <h3 class="text-center">พนักงาน</h3>
     <div class="clearfix mb-2">
       <div class="float-right">
              <form method="GET" class="form-inline">
@@ -12,7 +12,7 @@
                      <input type="text" class="form-control" id="search" name="search" placeholder="" value="{{ !empty($_GET['search']) ? $_GET['search'] : '' }}">
     </div>
                 <button type="submit" class="btn btn-primary "><i class="fa fa-search"></i> ค้นหา</button>
-                <a href="{{ url('staff/create') }}" class="btn btn-success float-right ml-2"> เพิ่มข้อมูลสมาชิก</a>
+                <a href="{{ url('staff/create') }}" class="btn btn-success float-right ml-2"> เพิ่มพนักงาน</a>
               </form>
           </div>
 

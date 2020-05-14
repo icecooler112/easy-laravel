@@ -45,8 +45,7 @@
       <td ></td>
       <td ></td>
       <td>
-      <a href="" class="btn btn-warning">แก้ไข</a>
-      <a href="" onclick="return confirm('คุณต้องการลบข้อมูลหรือไม่ ?')" class="btn btn-danger">ลบข้อมูล</a>
+      
     </td>
     </tr>
 

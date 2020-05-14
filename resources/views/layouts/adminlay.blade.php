@@ -39,14 +39,14 @@
                     </li>
               <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                  {{ __('การจัดการข้อมูล') }} <span class="caret"></span>
+                  {{ __('จัดการข้อมูลพนักงาน') }} <span class="caret"></span>
                           </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="{{ url('/staff') }}">{{ __('ข้อมูลสมาชิก') }}</a>
+                          <a class="dropdown-item" href="{{ url('/staff') }}">{{ __('พนักงาน') }}</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="{{ url('/department') }}">{{ __('ข้อมูลแผนกงาน') }}</a>
+                          <a class="dropdown-item" href="{{ url('/department') }}">{{ __('แผนกงาน') }}</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="{{ url('/position') }}">{{ __('ข้อมูลตำแหน่งงาน') }}</a>
+                          <a class="dropdown-item" href="{{ url('/position') }}">{{ __('ตำแหน่งงาน') }}</a>
                         </li>
                         </ul>
 
@@ -67,7 +67,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
