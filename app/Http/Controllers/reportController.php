@@ -64,7 +64,7 @@ class reportController extends Controller
      */
     public function show($id)
     {
-        //
+        abort(404);
     }
 
     /**
@@ -100,7 +100,7 @@ class reportController extends Controller
     {
         //
     }
-    public function generatePDF()
+    public function createPDF()
 
     {
 

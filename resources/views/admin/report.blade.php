@@ -7,7 +7,7 @@
     <div class="clearfix mb-2">
                  <div class="form-group text-center ">
                 <a href="" class="btn btn-success text-center"> Export to Excel</a>
-                <a href="{{ url('/report/pdf') }}" class="btn btn-danger text-center"> Export to PDF</a>
+                <a href="{{ asset('report/pdf') }}" class="btn btn-danger text-center"> Export to PDF</a>
               </form>
           </div>
 

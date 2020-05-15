@@ -49,7 +49,9 @@ Route::get('/user/{id}/delete','userController@delete');
 
 Route::resource('/letter', 'letterController');
 
-Route::resource('/report', 'reportController');
-Route::get('/report','reportController@generatePDF');
+// ปกติ ถ้าไม่มีการส่งไอดีมา ค่ามันจะไปฟังก์ชั่นโชว์ แต่การทำ พีดีเอฟแบบไฟล์เดี่ยว ก็ต้องส่งไอดีข้อมูลที่ต้องการทำมานะ (เหมือนแก้ไข)
+// อันนี้คือการปิดการแสดงผลฟังก์ชั่นโชว์ ทำให้ฟังก์ชั่นอื่นใช้งานได้
+Route::resource('/report', 'reportController')->except(['show']);
+Route::get('/report/pdf','reportController@createPDF');
 
 Route::resource('/manageletter', 'manageletterController');
