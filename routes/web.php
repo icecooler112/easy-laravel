@@ -50,4 +50,6 @@ Route::get('/user/{id}/delete','userController@delete');
 Route::resource('/letter', 'letterController');
 
 Route::resource('/report', 'reportController');
-Route::get('/report/{id}/delete','reportController@delete');
+Route::get('/report','reportController@generatePDF');
+
+Route::resource('/manageletter', 'manageletterController');

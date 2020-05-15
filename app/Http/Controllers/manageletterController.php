@@ -9,9 +9,8 @@ use App\Models\managelettermodel AS MM; //เรียก positionmodel มา�
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
-use PDF;
-
-class reportController extends Controller
+use DB;
+class manageletterController extends Controller
 {
   protected $cValidator = [
 
@@ -29,10 +28,10 @@ class reportController extends Controller
      */
     public function index(Request $request, MM $pm)
     {
-       $request->limit = !empty($request->limit) ? $request->limit : $this->limit;
-       $request->status = "อนุมัติ";
+      $request->limit = !empty($request->limit) ? $request->limit : $this->limit;
+      $request->status = "รออนุมัติ";
       $data = $pm->lists( $request );
-          return view('admin.report')->with( ["data"=>$data, "limit"=>$request->limit ]) ;
+      return view('manageletter.manageletter')->with( ["data"=>$data, "limit"=>$request->limit ] );
     }
 
     /**
@@ -75,7 +74,11 @@ class reportController extends Controller
      */
     public function edit($id)
     {
-        //
+      $data = MM::findOrFail( $id );
+    if( is_null($data) ){
+      return back()->with('jsAlert', "ไม่พบข้อมูล");
+    }
+    return view('manageletter.forms.letteredit')->with( ['data'=>$data,'staff'=>SM::get()] );
     }
 
     /**
@@ -87,7 +90,20 @@ class reportController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+      $validator = Validator::make( $request->all(), $this->cValidator, $this->cValidatorMsg);
+    if( $validator->fails() ){
+          return back()->withInput()->withErrors( $validator->errors() );
+      }
+      else{
+    $data = MM::findOrFail( $id );
+    if( is_null($data) ){
+    return back()->with('jsAlert', "ไม่พบข้อมูลที่ต้องการแก้ไข");
+    }
+    }
+    $data->status = $request->status;
+    $data->update();
+    return redirect()->route('manageletter.index')->with('jsAlert', 'แก้ไขข้อมูลสำเร็จ');
     }
 
     /**
@@ -99,16 +115,5 @@ class reportController extends Controller
     public function destroy($id)
     {
         //
-    }
-    public function generatePDF()
-
-    {
-
-        $data = ['title' => 'Welcome to HDTuto.com'];
-
-        $pdf = PDF::loadView('myPDF', $data);
-
-        return $pdf->stream('report.pdf');
-
     }
 }

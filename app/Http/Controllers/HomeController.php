@@ -25,9 +25,9 @@ class HomeController extends Controller
     {
 
   if(auth()->user()->isAdmin()) {
-      return view('admin/dashboard');
+      return redirect()->route('manageletter.index');
   } else {
-      return view('user/dashboarduser');
+      return redirect()->route('letter.index');
   }
   }
   }

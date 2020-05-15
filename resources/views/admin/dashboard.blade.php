@@ -2,53 +2,22 @@
 
 @section('content')
 <div class="container">
-  <h3 class="text-center">รายการลา</h3>
-    <div class="clearfix mb-2">
-      <div class="float-right">
-             <form method="GET" class="form-inline">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Dashboard</div>
 
-                 <div class="form-group">
-                     <label for="search" class="sr-only">Search</label>
-                     <input type="text" class="form-control" id="search" name="search" placeholder="" value="{{ !empty($_GET['search']) ? $_GET['search'] : '' }}">
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    You are logged in admin!
+                </div>
+            </div>
+        </div>
     </div>
-                <button type="submit" class="btn btn-primary "><i class="fa fa-search"></i> ค้นหา</button>
-              </form>
-          </div>
-
-    </div>
-
-
-    <table class="table table-striped">
-    <thead class="text-center">
-    <tr>
-      <th scope="col">ลำดับ</th>
-      <th scope="col">ชื่อ-สกุล</th>
-      <th scope="col">การลา</th>
-      <th scope="col">หมายเหตุ</th>
-      <th scope="col">วันที่ลา</th>
-      <th scope="col">ถึงวันที่</th>
-      <th scope="col">เป็นจำนวนวัน</th>
-      <th scope="col">สถานะ</th>
-      <th scope="col">จัดการ</th>
-    </tr>
-    </thead>
-    <tbody class="text-center">
-
-    <tr>
-      <td ></td>
-      <td ></td>
-      <td ></td>
-      <td ></td>
-      <td ></td>
-      <td ></td>
-      <td ></td>
-      <td ></td>
-      <td>
-
-    </td>
-    </tr>
-
-    </tbody>
-    </table>
 </div>
 @endsection

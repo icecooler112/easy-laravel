@@ -6,8 +6,8 @@
   <br>
     <div class="clearfix mb-2">
                  <div class="form-group text-center ">
-                <a href="{{ url('letter/create') }}" class="btn btn-success text-center"> Export to Excel</a>
-                <a href="{{ url('letter/create') }}" class="btn btn-danger text-center"> Export to PDF</a>
+                <a href="" class="btn btn-success text-center"> Export to Excel</a>
+                <a href="{{ url('/report/pdf') }}" class="btn btn-danger text-center"> Export to PDF</a>
               </form>
           </div>
 
@@ -24,25 +24,21 @@
       <th scope="col">วันที่ลา</th>
       <th scope="col">ถึงวันที่</th>
       <th scope="col">เป็นจำนวนวัน</th>
-      <th scope="col">สถานะ</th>
-      <th scope="col">จัดการ</th>
+
     </tr>
     </thead>
     <tbody class="text-center">
-
+      @foreach( $data as $key => $value)
     <tr>
-      <td ></td>
-      <td ></td>
-      <td ></td>
-      <td ></td>
-      <td ></td>
-      <td ></td>
-      <td ></td>
-      <td ></td>
-      <td>
-
-    </td>
+      <td >{{$loop->iteration }}</td>
+      <td >{{ $value->name_title }} {{ $value->name }} {{ $value->lastname }}</td>
+      <td >{{ $value->title_name }}</td>
+      <td >{{ $value->detail }}</td>
+      <td >{{ $value->date }}</td>
+      <td >{{ $value->date_to }}</td>
+      <td >{{ $value->all_time }} วัน</td>
     </tr>
+    @endforeach
 
     </tbody>
     </table>

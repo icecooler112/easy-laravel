@@ -1,23 +1,10 @@
-@extends('layouts.app')
+
+@extends('layouts.adminlay')
 
 @section('content')
 <div class="container">
   <h3 class="text-center">รายการลา</h3>
     <div class="clearfix mb-2">
-      <div class="float-right">
-             <form method="GET" class="form-inline">
-
-                 <div class="form-group">
-                     <label for="search" class="sr-only">Search</label>
-                     <input type="text" class="form-control" id="search" name="search" placeholder="" value="{{ !empty($_GET['search']) ? $_GET['search'] : '' }}">
-    </div>
-                <button type="submit" class="btn btn-primary "><i class="fa fa-search"></i> ค้นหา</button>
-                <a href="{{ url('letter/create') }}" class="btn btn-success float-right ml-2"> ยื่นเรื่องลา</a>
-              </form>
-          </div>
-
-    </div>
-
 
     <table class="table table-striped">
     <thead class="text-center">
@@ -31,6 +18,7 @@
       <th scope="col">ถึงวันที่</th>
       <th scope="col">เป็นจำนวนวัน</th>
       <th scope="col">สถานะ</th>
+      <th scope="col">ตรวจสอบ</th>
 
     </tr>
     </thead>
@@ -45,6 +33,7 @@
       <td >{{ $value->date_to }}</td>
       <td >{{ $value->all_time }} วัน</td>
       <td >{{ $value->status }}</td>
+      <td >  <a href="{{ action('manageletterController@edit', $value->id) }}" class="btn btn-info">ตรวจสอบ</a></td>
     </tr>
 @endforeach
     </tbody>

@@ -95,14 +95,14 @@ class resetpassController extends Controller
           $data = SM::find(Auth::user()->id);
           $data->password = Hash::make($request->new_password);
           $data->update();
-           return redirect()->route('user.index')->with('jsAlert', 'แก้ไขข้อมูลสำเร็จ');
+           return redirect()->route('letter.index')->with('jsAlert', 'แก้ไขข้อมูลสำเร็จ');
         }
         else{
-          return redirect()->route('user.index')->with('jsAlert', 'error password not matching');
+          return redirect()->route('letter.index')->with('jsAlert', 'error password not matching');
         }
       }
       else{
-        return redirect()->route('user.index')->with('jsAlert', 'รหัสผ่านเดิมไม่ถูกต้อง กรุณาลองใหม่');
+        return redirect()->route('letter.index')->with('jsAlert', 'รหัสผ่านเดิมไม่ถูกต้อง กรุณาลองใหม่');
       }
 
     }

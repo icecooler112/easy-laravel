@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\lettermodel AS LM; //เรียก positionmodel มาใช้ใน Controller นี้
-use App\Models\staffmodel AS SM; //เรียก positionmodel มาใช้ใน Controller นี้
+use App\Models\lettermodel AS LM; //เรียก lettermodel มาใช้ใน Controller นี้
+use App\Models\staffmodel AS SM; //เรียก staffmodel มาใช้ใน Controller นี้
 use Auth;
 use DB;
 use Illuminate\Support\Facades\Validator;
@@ -19,6 +19,8 @@ class letterController extends Controller
   protected $cValidatorMsg = [
 
   ];
+
+  public $limit = 5;
     /**
      * Display a listing of the resource.
      *
@@ -29,8 +31,8 @@ class letterController extends Controller
       $request->limit = !empty($request->limit) ? $request->limit : $this->limit;
 
       $data = $pm->lists( $request );
+      return view('user.dashboarduser')->with( ["data"=>$data, "limit"=>$request->limit ] );
 
-        return view('user.dashboarduser')->with( ["data"=>$data, "limit"=>$request->limit, 'letters'=>LM::get() ] );
     }
 
     /**
@@ -81,7 +83,7 @@ class letterController extends Controller
                $data->update();
              }
            }
-           return redirect()->route('user.index')->with('jsAlert', 'เพิ่มข้อมูลสำเร็จ');
+           return redirect()->route('letter.index')->with('jsAlert', 'เพิ่มข้อมูลสำเร็จ');
          }
     }
 

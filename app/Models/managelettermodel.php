@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use DB;
-use Auth;
-class lettermodel extends Model
+
+class managelettermodel extends Model
 {
   protected $table = "letter";
 protected $fillable = [ "user_id","title_name","etc", "detail", "date", "date_to", "all_time","phone", "status" ];
@@ -17,10 +17,12 @@ public function lists($request){
         "position.name_position as position_name","letter.title_name")
         ->leftjoin('users', $this->table.'.user_id', '=', 'users.id')
         ->leftjoin('department', "users.department", "=", "department.id")
-        ->leftjoin('position', "users.position", "=", "position.id")
-        ->where('user_id',auth::user()->id);
+        ->leftjoin('position', "users.position", "=", "position.id");
+        
 
+        if( !empty($request->status) ){
+          $query->where("{$this->table}.status", '=', $request->status);
+        }
         return $query->paginate();
 }
-
 }
