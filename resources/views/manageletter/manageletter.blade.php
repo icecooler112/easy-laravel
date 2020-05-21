@@ -33,7 +33,7 @@
       <td >{{ $value->date_to }}</td>
       <td >{{ $value->all_time }} วัน</td>
       <td >{{ $value->status }}</td>
-      <td >  <a href="{{ action('manageletterController@edit', $value->id) }}" class="btn btn-info">ตรวจสอบ</a></td>
+      <td >  <a href="{{ action('manageletterController@edit', $value->id, $value->user_id) }}" class="btn btn-info">ตรวจสอบ</a></td>
     </tr>
 @endforeach
     </tbody>
